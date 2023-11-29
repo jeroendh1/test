@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+    php-environment:
+        container_name: webapp
+        build:
+            context: ./itvb23ows-starter-code
+            dockerfile: Dockerfile
+        depends_on:
+            - db
+        volumes:
+            - ./itvb23ows-starter-code:/var/www/html/
+        ports:
+            - 8000:80
+    db:
+        container_name: db
+        image: mysql
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ALLOW_EMPTY_PASSWORD: true  # You can use this line if you want an empty password for root
+          MYSQL_DATABASE: hive
+        ports:
+            - "9906:3306"
