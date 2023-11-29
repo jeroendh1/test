@@ -3,16 +3,16 @@ services:
     php-environment:
         container_name: webapp
         build:
-            context: ./itvb23ows-starter-code
+            context: ./project-jenkins
             dockerfile: Dockerfile
         depends_on:
-            - db
+            - db1
         volumes:
-            - ./itvb23ows-starter-code:/var/www/html/
+            - ./project-jenkins:/var/www/html/
         ports:
             - 8000:80
-    db:
-        container_name: db
+    db1:
+        container_name: db1
         image: mysql
         restart: always
         environment:
