@@ -3,7 +3,7 @@ pipeline {
     stages {
          stage('terraform started') {
             steps {
-                sh 'echo "Started...!" '
+                bat 'echo "Started...!" '
             }
         }
         // stage('SonarQube') {
