@@ -3,14 +3,14 @@ pipeline {
     stages {
          stage('terraform started') {
             steps {
-                bat 'echo "Started...!" '
+                sh 'echo "Started...!" '
             }
         }
         stage('SonarQube') {
             steps {
                 script { scannerHome = tool 'SonarQube Scanner' }
                 withSonarQubeEnv('SonarQube Scanner') {
-                bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=test"
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=test"
             }
          }
         }
