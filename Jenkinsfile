@@ -8,7 +8,7 @@ pipeline {
         }
         stage('SonarQube') {
             steps {
-                script { scannerHome = tool 'SonarQube Scanner' }
+                script { scannerHome = tool  name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';}
                 withSonarQubeEnv('SonarQube Scanner') {
                 sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=test"
             }
